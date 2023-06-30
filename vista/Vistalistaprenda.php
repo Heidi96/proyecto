@@ -12,11 +12,13 @@
 <div class="container">
     <div class="row">
     <div class="col-1"></div>
-    <div class="col-10">
+    <div class="col-10"><br>
     <h1>LISTADO DE PRENDAS</h1>
         <table class="table">
             <thead class="thead-dark">
                 <tr>
+                    <TH scope="col">CLIENTE</TH>
+                    <TH scope="col">CARNET</TH>
                     <TH scope="col">TIPO PRENDA</TH>
                     <TH scope="col">MARCA</TH>
                     <TH scope="col">COLOR</TH>
@@ -30,15 +32,19 @@
             ?>
                     <div class="form_group">
                         <tr align="center" valign="middle">
-                            <td><?php echo $r[5];?></td>
+                            <td><?php echo $r['nombre_cliente'].' '.$r['paterno_cliente'].' '.$r['materno_cliente'];?></td>
+                            <td><?php echo $r['carnet_cliente'];?></td>
+                            <td><?php echo $r[6];?></td>
+                            
                             
                             <td><?php echo $r[2];?></td>
                             <td><?php echo $r[3]?></td>
                             <td><?php echo $r[4];?></td>
 
-                            <td><a href='editaprenda.php?cod=<?php echo $r[0];?>' class="btn btn-success"><i class="bi bi-eraser"></i></i></i></a></td>
+                            <td><a href='editaprenda.php?cod=<?php echo $r[0];?>' class="btn btn-success"><i class="bi bi-eraser"></i></a></td>
                             
                             <td><a href='eliminaprenda.php?cid=<?php echo $r[0];?>' class="btn btn-danger"><i class="bi bi-trash"></i></a></td>
+                    
             <?php
                 }
             ?>
@@ -46,7 +52,8 @@
         </table>
             <tr>
                 <td><a href="../controlador/registrarprenda.php" class="btn btn-info">Nueva Prenda</a></td>
-                <td><a href="../controlador/busquedaprenda.php" class="btn btn-warning">Buscar Prenda</a></td>
+                <td><a href="../controlador/busquedaprenda.php" class="btn btn-warning">Buscar Tipo de Prenda</a></td>
+                <td><a href="../controlador/busquedaprendacliente.php" class="btn btn-primary">Buscar por Cliente</a></td>
                 <td><a href="../reportes/reporteprenda.php" class="btn btn-secondary">Reporte Prenda</a></td>
                 <td><a href="../index.php" class="btn btn-danger">SALIR</a></td>
             </tr>

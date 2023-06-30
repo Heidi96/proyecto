@@ -16,28 +16,34 @@
 
     <h1>REGISTRAR CREDITO</h1><br>
     <form role="form" method="post" enctype="multipart/form-data">
-        
+        <div class="form_group"></div>
 
         <div class="form_group"></div>
-        <label for="">TIPO PRENDA</label>
-            <select name="tipo" id="tipo"  class="form-control"><br>
+        <label for="">CLIENTE / PRENDA</label>
+            <select name="prenda" id="prenda"  class="form-control"><br>
             <?php
-                while($reg=mysqli_fetch_array($res)){
+                while($reg=mysqli_fetch_array($res_prenda)){
                     ?>
-                    <option value="<?php echo $reg[0]?>"><?php echo $reg['tipo']?></option>
+                    <option value="<?php echo $reg[0]?>"><?php echo $reg['nombre_cliente']." ".$reg['paterno_cliente']." ".$reg['materno_cliente']." / ".$reg['tipo']." / ".$reg['marca']." / ".$reg['color']?></option>
                     <?php
                 }
             ?>
             </select>
         <br>
 
+        <button class="btn btn-dark btn-lg" data-toggle="modal" data-target="registrarprenda.php">
+            <a href="../controlador/registrarprenda.php">Agregar Prenda</a>
+        </button>
+        <br>
+        <br>
+
         <div class="form_group"></div>
-        <label for="">CLIENTE</label>
-            <select name="cliente" id="cliente"  class="form-control"><br>
+        <label for="">LAPSO DE CREDITO</label>
+            <select name="tipoc" id="tipoc"  class="form-control"><br>
             <?php
-                while($reg=mysqli_fetch_array($res)){
+                while($reg=mysqli_fetch_array($res_cre)){
                     ?>
-                    <option value="<?php echo $reg[0]?>"><?php echo $reg['nombre_cliente']." ".$reg['paterno_cliente']." ".$reg['materno_cliente']?></option>
+                    <option value="<?php echo $reg[0]?>"><?php echo $reg['tipoc']?></option>
                     <?php
                 }
             ?>
@@ -50,10 +56,32 @@
         <label for="">FECHA FIN CREDITO</label>
         <input type="date" class="form-control" name="fechaf" id="fechaf">
         <br>
+        
+        <label for="">MONTO DE CREDITO</label>
+        <!-- <input type="number" class="form-control" name="monto" id="monto" min=10 max=10000> -->
+        <input type="text" class="form-control" name="monto" id="monto">
+        <br>
 
+        <label for="">INTERES DE CREDITO [ % ]</label>
+            <select name="tipoi" id="tipoi"  class="form-control"><br>
+            <?php
+                while($reg=mysqli_fetch_array($res_int)){
+                    ?>
+                    <option value="<?php echo $reg[0]?>"><?php echo $reg['tipoi']?></option>
+                    <?php
+                    
+                }
+            ?>
+            </select>
+        <br>
+        <!-- <input type="submit" name="calcular" value="calcular" class="btn btn-success">
+        <br> -->
+
+        <!-- <label for="">TOTAL DE CREDITO</label>
+         <input type="number" class="form-control" name="total" id="total"> --> 
 
         <input type="submit" name="REGISTRAR" value="REGISTRAR" class="btn btn-success">
-        <a href="../controlador/listausuario.php" class="btn btn-danger">CANCELAR</a>
+        <a href="../controlador/listacredito.php" class="btn btn-danger">CANCELAR</a>
     </form>
 
     </div>

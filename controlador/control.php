@@ -1,4 +1,5 @@
 <?php
+    include("../modelo/conexion.php");
     include("../vista/login.php");
     if(isset($_POST['INGRESAR'])){
         $usu=$_POST['usuario'];

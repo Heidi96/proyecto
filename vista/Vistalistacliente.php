@@ -9,17 +9,17 @@
     }
 ?>
 <body>
-    <div class="col-2"></div>
-    <div class="col-8">
+<div class="container">
+    <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10"><br>
     <h1>LISTADO DE CLIENTES</h1>
         <table class="table">
             <thead class="thead-dark">
                 <tr>
                     <TH scope="col">Id Cliente</TH>
                     <TH scope="col">CARNET</TH>
-                    <TH scope="col">NOMBRE</TH>
-                    <TH scope="col">PATERNO</TH>
-                    <TH scope="col">MATERNO</TH>
+                    <TH scope="col">NOMBRE COMPLETO</TH>
                     <TH scope="col">DIRECCION</TH>
                     <TH scope="col">TELEFONO</TH>
                     <TH scope="col">GENERO</TH>
@@ -29,21 +29,22 @@
             <tbody>
                 <?php
                     while($reg=mysqli_fetch_array($res)){
-                        echo "<tr>";
-                        echo "<td>".$reg['id_cliente']."</td>";
-                        echo "<td>".$reg['carnet_cliente']."</td>";
-                        echo "<td>".$reg['nombre_cliente']."</td>";
-                        echo "<td>".$reg['paterno_cliente']."</td>";
-                        echo "<td>".$reg['materno_cliente']."</td>";
-                        echo "<td>".$reg['direccion_cliente']."</td>";
-                        echo "<td>".$reg['telefono_cliente']."</td>";
-                        echo "<td>".$reg['genero_cliente']."</td>";
+                ?>
 
-                        echo"<td><a href='../controlador/editacliente.php?cod=$reg[0]' class='btn btn-success'>EDITAR</a>";
+                        <div class="form_group">
+                        <tr align="center" valign="middle">
+                            <td><?php echo $reg['id_cliente'];?></td>
+                         
+                            <td><?php echo $reg['carnet_cliente'];?></td>
+                            <td><?php echo $reg['nombre_cliente']." ".$reg['paterno_cliente']." ".$reg['materno_cliente'];?></td>
+                            <td><?php echo $reg['direccion_cliente'];?></td>
+                            <td><?php echo $reg['telefono_cliente'];?></td>
+                            <td><?php echo $reg['genero_cliente'];?></td>
 
-                        echo"<td><a href='../controlador/eliminacliente.php?cid=$reg[id_cliente]' class='btn btn-danger'>ELIMINAR</a>";
-
-                        echo "</tr>";
+                            <td><a href='editacliente.php?cod=<?php echo $reg[0];?>' class="btn btn-success"><i class="bi bi-eraser"></i></a></td>
+                            
+                            <td><a href='eliminacliente.php?cid=<?php echo $reg[0];?>' class="btn btn-danger"><i class="bi bi-trash"></i></a></td>
+                <?php
                     }
                 ?>
             </tbody>
@@ -57,8 +58,10 @@
             </tr>
         </table>
     </div>
-    <div class="col-2"></div>
-    
+    <div class="col-1"></div>
+    </div>
+</div>
+    <br><br><br><br><br><br>
     <br><br>
 
     <?php

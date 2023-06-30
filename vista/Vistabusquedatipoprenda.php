@@ -16,15 +16,15 @@
         <form role="form" method="get">
         <h1>TIPO DE PRENDAS</h1>
         <div class="form_group">
-            <label>TIPO</label><br>
+            <label>Buscar tipo de prenda</label><br>
             <input class="form-control" type="text" name="tipo" id="tipo">
         </div>
-
+<br>
         <div class="form_group"><center>
             <input type="submit" name="Buscar" value="Buscar" id="Buscar" class="btn btn-primary">
         </center>
         </div>
-
+<br>
         <table class="table">
             <thead class="thead-dark">
             <tr align="center">

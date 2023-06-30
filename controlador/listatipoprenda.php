@@ -1,4 +1,5 @@
 <?php
+    include("../modelo/conexion.php");
     include("../modelo/tipoprenda.php");
     $ti=new tipoprenda("","");
     $res=$ti->lista();

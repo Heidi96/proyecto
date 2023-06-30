@@ -1,4 +1,5 @@
 <?php
+    include("../modelo/conexion.php");
     $co=$_GET['cid'];
     include("../modelo/prenda.php");
     $prenda=new prenda($co,"","","","");

@@ -1,4 +1,5 @@
 <?php
+    include("../modelo/conexion.php");
     include("../modelo/cliente.php");
     $cli=new cliente("","","","","","","","","");
     $res=$cli->listarcliente();

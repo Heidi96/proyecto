@@ -1,4 +1,5 @@
 <?php
+    include("../modelo/conexion.php");
     $cod=$_GET['cod'];
     include("../modelo/cargo.php");
     $car=new cargo($cod,"");

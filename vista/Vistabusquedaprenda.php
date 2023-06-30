@@ -14,20 +14,24 @@
     <div class="col-1"></div>
     <div class="col-10">
         <form role="form" method="get">
+        
         <h1>PRENDA</h1>
         <div class="form_group">
-            <label>PRENDA</label><br>
-            <input class="form-control" type="text" name="marca" id="marca">
+            <label>PRENDA POR TIPO DE PRENDA</label><br>
+            <input class="form-control" type="text" name="tipo" id="tipo">
         </div>
-
+<br>
         <div class="form_group"><center>
             <input type="submit" name="Buscar" value="Buscar" id="Buscar" class="btn btn-primary">
         </center>
         </div>
-
+<br>
         <table class="table">
             <thead class="thead-dark">
             <tr align="center">
+                    <th scope="col">CLIENTE</th>
+                    <th scope="col">CARNET</th>
+                    <th scope="col">TIPO</th>
                     <th scope="col">MARCA</th>
                     <th scope="col">COLOR</th>
                     <th scope="col">DETALLE</th>

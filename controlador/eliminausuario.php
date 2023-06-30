@@ -1,4 +1,5 @@
 <?php
+    include("../modelo/conexion.php");
     $co=$_GET['cid'];
     include("../modelo/usuario.php");
     $usu=new usuario($co,"","","","","");

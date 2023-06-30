@@ -1,82 +1,128 @@
 <div class="page-content">
     <div class="row">
         <div class="col-3">
-            <div class="sidebar" style="display:block;">
-                <ul class="nav">
+<br>
+            <div class="sidebar" style="background-color: #8D9394; color: #ffffff; padding: 5px; width: 300px;">
+                <ul class="nav-list">
                     <!--main-->
-                    <li class="submenu">
-                        <a href="../vista/principal1.php">
-                            <i class="bi bi-list-ul">CLIENTE</i>
-                            <i class="bi bi-caret-down"></i>
-                        </a>
-
-                        <!--sub main-->
-                        <ul>
-                            <li><a href="../controlador/registrarcliente.php">NUEVO CLIENTE</a></li>
-                            <li><a href="../controlador/listacliente.php">LISTA CLIENTE</a></li>    
-                            <li><a href="../controlador/busquedacliente.php">BUSCAR CLIENTE</a></li>                
-                            <li><a href="../controlador/reportecliente.php">REPORTE CLIENTE</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="submenu">
-                        <a href="../vista/principal1.php">
-                            <i class="bi bi-list-ul">CARGO</i>
-                            <i class="bi bi-caret-down"></i>
-                        </a>
-
-                        <!--sub main-->
-                        <ul>
-                            <li><a href="../controlador/registrarcargo.php">NUEVO CARGO</a></li>
-                            <li><a href="../controlador/listacargo.php">LISTA CARGO</a></li>
-                            <li><a href="../controlador/busquedacargo.php">BUSCAR CARGO</a></li>
-                            <li><a href="../controlador/reportecargo.php">REPORTE CARGO</a></li>
-
-                        </ul>
-                    </li>
-
-                    <li class="submenu">
-                        <a href="../vista/principal1.php">
-                            <i class="bi bi-list-ul">USUARIO</i>
-                            <i class="bi bi-caret-down"></i>
-                        </a>
-
-                        <ul>
-                            <li><a href="../controlador/registrarusuario.php">NUEVO USUARIO</a></li>
-                            <li><a href="../controlador/listausuario.php">LISTA USUARIO</a></li>
-                            <li><a href="../controlador/busquedausuario.php">BUSCAR USUARIO</a></li>
-                            <li><a href="../controlador/reporteusuario.php">REPORTE USUARIO</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="submenu">
-                        <a href="../vista/principal1.php">
-                            <i class="bi bi-list-ul">EMPLEADO</i>
-                            <i class="bi bi-caret-down"></i>
-                        </a>
-
-                        <ul>
-                            <li><a href="../controlador/registrarempleado.php">NUEVO EMPLEADO</a></li>
-                            <li><a href="../controlador/listaempleado.php">LISTA EMPLEADO</a></li>
-                            <li><a href="../controlador/busquedaempleado.php">BUSCAR EMPLEADO</a></li>
-                            <li><a href="../controlador/reporteempleado.php">REPORTE EMPLEADO</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="submenu">
-                        <a href="../vista/principal1.php">
-                            <i class="bi bi-list-ul">PRENDA</i>
-                            <i class="bi bi-caret-down"></i>
-                        </a>
-                        <ul>
-                            <li><a href="../controlador/registrarprenda.php">NUEVA PRENDA</a></li>
-                            <li><a href="../controlador/listaprenda.php">LISTA PRENDA</a></li>         
-                            <li><a href="../controlador/busquedaprenda.php">BUSCAR PRENDA</a></li>           
-                            <li><a href="../controlador/reporteprenda.php">REPORTE PRENDA</a></li>
-                        </ul>
-                    </li>
+                        <div class="dropdown dropright">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-list-ul"> CLIENTE </i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="../controlador/registrarcliente.php">NUEVO CLIENTE</a>
+                                <a class="dropdown-item" href="../controlador/listacliente.php">LISTA CLIENTE</a>
+                                <a class="dropdown-item" href="../controlador/busquedacliente.php">BUSCAR CLIENTE</a>
+                                <a class="dropdown-item" href="../controlador/reportecliente.php">REPORTE CLIENTE</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown dropright">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-list-ul"> CARGO </i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="../controlador/registrarcargo.php">NUEVO CARGO</a>
+                                <a class="dropdown-item" href="../controlador/listacargo.php">LISTA CARGO</a>
+                                <a class="dropdown-item" href="../controlador/busquedacargo.php">BUSCAR CARGO</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown dropright">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-list-ul"> EMPLEADO </i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="../controlador/registrarempleado.php">NUEVO EMPLEADO</a>
+                                <a class="dropdown-item" href="../controlador/listaempleado.php">LISTA EMPLEADO</a>
+                                <a class="dropdown-item" href="../controlador/busquedaempleado.php">BUSCAR EMPLEADO</a>
+                                <a class="dropdown-item" href="../controlador/reporteempleado.php">REPORTE EMPLEADO</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown dropright">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-list-ul"> USUARIO </i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="../controlador/registrarusuario.php">NUEVO USUARIO</a>
+                                <a class="dropdown-item" href="../controlador/listausuario.php">LISTA USUARIO</a>
+                                <a class="dropdown-item" href="../controlador/busquedausuario.php">BUSCAR USUARIO</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown dropright">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-list-ul"> INTERÉS </i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="../controlador/registrartipointeres.php">NUEVO INTERES</a>
+                                <a class="dropdown-item" href="../controlador/listatipointeres.php">LISTA INTERES</a>
+                                <a class="dropdown-item" href="../controlador/busquedatipointeres.php">BUSCAR INTERES</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown dropright">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-list-ul"> TIPO DE PRENDA </i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="../controlador/registrartipoprenda.php">NUEVO TIPO PRENDA</a>
+                                <a class="dropdown-item" href="../controlador/listatipoprenda.php">LISTA TIPO PRENDA</a>
+                                <a class="dropdown-item" href="../controlador/busquedatipoprenda.php">BUSCAR TIPO PRENDA</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown dropright">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-list-ul"> PRENDA </i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="../controlador/registrarprenda.php">NUEVO PRENDA</a>
+                                <a class="dropdown-item" href="../controlador/listaprenda.php">LISTA PRENDA</a>
+                                <a class="dropdown-item" href="../controlador/busquedaprenda.php">BUSCAR PRENDA</a>
+                                <a class="dropdown-item" href="../controlador/reporteprenda.php">REPORTE PRENDA</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown dropright">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-list-ul"> TIPO DE CRÉDITO </i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="../controlador/registrartipocredito.php">NUEVO TIPO CREDITO</a>
+                                <a class="dropdown-item" href="../controlador/listatipocredito.php">LISTA TIPO CREDITO</a>
+                                <a class="dropdown-item" href="../controlador/busquedatipocredito.php">BUSCAR TIPO CREDITO</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown dropright">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-list-ul"> CRÉDITO </i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="../controlador/registrarcredito.php">NUEVO CREDITO</a>
+                                <a class="dropdown-item" href="../controlador/listacredito.php">LISTA CREDITO</a>
+                                <a class="dropdown-item" href="../controlador/busquedacredito.php">BUSCAR CREDITO</a>
+                                <a class="dropdown-item" href="../controlador/reportecredito.php">REPORTE CREDITO</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown dropright">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" class="form-control">
+                                <i class="bi bi-list-ul"> PAGO </i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="../controlador/registrarpago.php">NUEVO PAGO</a>
+                                <a class="dropdown-item" href="../controlador/listapago.php">LISTA PAGO</a>
+                                <a class="dropdown-item" href="../controlador/busquedapago.php">BUSCAR PAGO</a>
+                                <a class="dropdown-item" href="../controlador/reportepago.php">REPORTE PAGO</a>
+                            </div>
+                        </div>
+                        <br>
                 </ul>
             </div> 
-        </div>
-    </div>
-</div>
+        </div><!-- Fin -->
+        <br><br>
+
+        

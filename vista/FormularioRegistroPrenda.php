@@ -20,6 +20,18 @@
         <h1>REGISTRAR TIPO PRENDA</h1><br>
         <div class="form_group"></div>
 
+        <label for="">CLIENTE</label>
+        <select name="cliente" id="cliente" class="form-control"><br>
+            <?php
+                while($reg=mysqli_fetch_array($res1)){
+                    ?>
+                    <option value="<?php echo $reg['id_cliente']?>"><?php echo $reg['carnet_cliente']?>
+                    </option> 
+                    <?php
+                } 
+            ?>
+        </select>
+<br>
         <label for="">TIPO PRENDA</label>
         <select name="tipo" id="tipo" class="form-control"><br>
             <?php
@@ -28,23 +40,10 @@
                     <option value="<?php echo $reg['id_tipo']?>"><?php echo $reg['tipo']?>
                     </option> 
                     <?php
-                }
-               /////como hacer q lo seleccionado habilite 
-                if($reg['tipo']=='JOYA'){
-                    ?><label for="">MARCA</label>
-                    <input type="text" class="form-control" name="marca" id="marca"><?php
-                }else{
-                    if($reg['tipo']=='LAPTOP'){
-                        ?><label for="">MARCA</label>
-                        <input type="text" class="form-control" name="marca" id="marca"><?php
-                    }
-                }
-                ////
-                
+                } 
             ?>
 
         </select>
-
 
         <br>
         <label for="">MARCA</label>

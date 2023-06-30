@@ -16,15 +16,15 @@
         <form role="form" method="get">
         <h1>CARGOS</h1>
         <div class="form_group">
-            <label>Cargo</label><br>
+            <label>Buscar Cargo</label><br>
             <input class="form-control" type="text" name="cargo" id="cargo">
         </div>
-
+<br>
         <div class="form_group"><center>
             <input type="submit" name="Buscar" value="Buscar" id="Buscar" class="btn btn-primary">
         </center>
         </div>
-
+<br>
         <table class="table">
             <thead class="thead-dark">
             <tr align="center">

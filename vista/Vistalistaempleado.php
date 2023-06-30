@@ -12,7 +12,7 @@
 <div class="container">
     <div class="row">
     <div class="col-1"></div>
-    <div class="col-10">
+    <div class="col-10"><br>
     <h1>LISTADO DE EMPLEADOS</h1>
         <table class="table">
             <thead class="thead-dark">
@@ -22,7 +22,7 @@
                     <TH scope="col">NOMBRE COMPLETO</TH>
                     <TH scope="col">DIRECCION</TH>
                     <TH scope="col">TELEFONO</TH>
-                    <TH scope="col">FECHA NACIMIENTO</TH>
+                    <TH scope="col">FECHA NACIMIENTO</TH> 
                     <TH scope="col">GENERO</TH>
                     <TH scope="col" colspan="2">OPERACIONES</TH>
                 </tr>
@@ -43,9 +43,9 @@
                             <td><?php echo $r[8];?></td>
                             <td><?php echo $r[9];?></td>
 
-                            <td><a href='editaempleado.php?cod=<?php echo $r[0];?>' class="btn btn-success"><i class="glyphicon glyphicon-edit"></i></a></td>
+                            <td><a href='editaempleado.php?cod=<?php echo $r[0];?>' class="btn btn-success"><i class="bi bi-eraser"></i></a></td>
                             
-                            <td><a href='eliminaempleado.php?cid=<?php echo $r[0];?>' class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a></td>
+                            <td><a href='eliminaempleado.php?cid=<?php echo $r[0];?>' class="btn btn-danger"><i class="bi bi-trash"></i></a></td>
             <?php
                 }
             ?>

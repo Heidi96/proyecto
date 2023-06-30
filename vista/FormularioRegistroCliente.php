@@ -38,6 +38,8 @@
         <input type="radio" name="genero" id="genero" value="F"> Femenino <br>
         <input type="radio" name="genero" id="genero" value="M"> Masculino 
         <br><br>
+ 
+
         <input type="submit" name="registrarCliente" value="REGISTRAR" class="btn btn-success">
         <a href="../controlador/listacliente.php" class="btn btn-danger">CANCELAR</a>
     </form>

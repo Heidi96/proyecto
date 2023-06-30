@@ -1,8 +1,11 @@
 <?php
+    include("../modelo/conexion.php");
     $cod=$_GET['cod'];
+
     include("../modelo/usuario.php");
     $usu=new usuario($cod,"","","","","");
     $res=$usu->listarusu(); 
+    
     include("../vista/Vistaeditausuario.php");
     if(isset($_GET['Editar'])){
         $usuario=$_GET['usuario'];

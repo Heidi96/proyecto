@@ -1,4 +1,5 @@
 <?php
+    include("../modelo/conexion.php");
     $cod=$_GET['cod'];
     include("../modelo/cliente.php");
     $cli=new cliente($cod,"","","","","","","","");

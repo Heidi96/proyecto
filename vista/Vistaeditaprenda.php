@@ -15,11 +15,20 @@
     <div class="col-6">
     <h1>EDITAR PRENDA</h1>
         <form role="form" method="get">
+            
+            
             <?php 
                 $reg=mysqli_fetch_array($res);
             ?>
             <input class="form-control" type="hidden" name="cod" id="cod" value='<?=$reg[0];?>'>
-
+            <div class="form-group">
+                <label>CLIENTE</label><br>
+                <input type="text" class="form-control" name="cliente" readonly value='<?=$reg['nombre_cliente'].' '.$reg['paterno_cliente'].' '.$reg['materno_cliente'];?>'>
+            </div>
+            <div class="form-group">
+                <label>CARNET</label><br>
+                <input type="text" class="form-control" name="carnet" readonly value='<?=$reg['carnet_cliente'];?>'>
+            </div>
             <div class="form-group">
                 <label>TIPO PRENDA</label><br>
                 <input type="text" class="form-control" name="tipo" readonly value='<?=$reg['tipo'];?>'>

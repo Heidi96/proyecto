@@ -1,4 +1,5 @@
 <?php
+    include("../modelo/conexion.php");    
     include("../modelo/usuario.php");
     $usu=new usuario("","","","","","");
     $res=$usu->listarusuarioinactivo();

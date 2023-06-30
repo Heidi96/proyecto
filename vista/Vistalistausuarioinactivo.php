@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row">
     <div class="col-1"></div>
-    <div class="col-10">
+    <div class="col-10"><br>
     <h1>LISTADO DE USUARIOS INACTIVOS</h1>
         <table class="table">
             <thead class="thead-dark">
@@ -49,7 +49,7 @@
 
                             <td><a href='editausuarioinactivo.php?cod=<?php echo $r[0];?>' class="btn btn-success">Activar</a></td>
 
-                            <td><a href='eliminausuarioinactivo.php?cid=<?php echo $r[0];?>' class="btn btn-danger">Eliminar<i class="glyphicon glyphicon-edit"></i></a></td>
+                            <td><a href='eliminausuarioinactivo.php?cid=<?php echo $r[0];?>' class="btn btn-danger"><i class="bi bi-trash"></i></a></td>
                             
                             
             <?php
@@ -60,7 +60,6 @@
             <tr>
                 <td><a href="../controlador/registrarusuario.php" class="btn btn-info">Nuevo Usuario</a></td>
                 <td><a href="../controlador/busquedausuarioinactivo.php" class="btn btn-warning">Buscar Usuario Inactivo</a></td>
-                <td><a href="../reportes/reporteusuarioinactivo.php" class="btn btn-secondary">Reporte Inactivos</a></td>
                 <td><a href="../controlador/listausuario.php" class="btn btn-dark">Lista de Usuarios</a></td>
                 <td><a href="../index.php" class="btn btn-danger">SALIR</a></td>
             </tr>

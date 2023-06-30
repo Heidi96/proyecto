@@ -1,5 +1,6 @@
 <?php
 //sale de la carpeta controlador y entra a la carpeta vista, busca el form de registro
+    include("../modelo/conexion.php");    
     include("../vista/FormularioRegistroTipoPrenda.php");
     if(isset($_POST['registrar'])){
         $ti=$_POST['tipo'];

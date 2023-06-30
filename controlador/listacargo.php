@@ -1,4 +1,5 @@
 <?php
+    include("../modelo/conexion.php");
     include("../modelo/cargo.php");
     $car=new cargo("","");
     $res=$car->lista();

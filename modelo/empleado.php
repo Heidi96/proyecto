@@ -31,20 +31,17 @@ class empleado{
         return($consulta);
     }
     public function listarempleado(){
-        include("conexion.php");
         $bd=new conexion();
         $consulta=$bd->query("SELECT e.*,c.cargo FROM empleado e INNER JOIN cargo c ON e.id_cargo=c.id_cargo order by e.nombre_e asc");
         return($consulta);
     }
     public function buscarempleado(){
-        include("conexion.php");
         $bd=new conexion();
         $consulta=$bd->query("SELECT e.*,c.cargo FROM empleado e INNER JOIN cargo c ON e.id_cargo=c.id_cargo where id_empleado='$this->id'");
         return($consulta);
     }
     ////
     public function lista(){
-        include("conexion.php");
         $bd=new conexion();
         $consulta=$bd->query("SELECT * FROM empleado");
         return($consulta);
@@ -57,14 +54,12 @@ class empleado{
     }
     ///podemos crear atributo estado para pòner empleados inactivos en lugar de eliminarlos definitivamente
     public function eliminarempleadositieneestado(){
-        include("conexion.php");
         $bd=new conexion();
         $consulta=$bd->query("UPDATE empleado set estado_e='Inactivo' where id_empleado='$this->id'");
         return($consulta);
     }
     
     public function eliminarempleado(){
-        include("conexion.php");
         $bd=new conexion();
         $consulta=$bd->query("DELETE FROM empleado where id_empleado='$this->id'");
         return($consulta);
@@ -74,10 +69,16 @@ class empleado{
         $consulta=$bd->query("UPDATE empleado SET carnet_e='$this->ci',nombre_e='$this->nombre',paterno_e='$this->paterno',materno_e='$this->materno',direccion_e='$this->direccion', telefono_e='$this->telefono',fechanac_e='$this->fechanac',genero_e='$this->genero' where id_empleado=$this->id");
         return($consulta);
     }
+    //busca por nombre
     public function buscarempleado1($n){
-        include("conexion.php");
         $bd=new conexion();
         $consulta=$bd->query("SELECT * FROM empleado where nombre_e like '%$n%'");
+        return($consulta);
+    }
+    //busca por carnet
+    public function buscarempleado2($n){
+        $bd=new conexion();
+        $consulta=$bd->query("SELECT e.*, c.cargo FROM empleado e inner join cargo c ON e.id_cargo=c.id_cargo where carnet_e like '%$n%'");
         return($consulta);
     }
 

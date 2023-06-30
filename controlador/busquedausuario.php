@@ -1,13 +1,19 @@
 <?php
+    include("../modelo/conexion.php");
     include("../vista/Vistabusquedausuario.php");
     if(isset($_GET['Buscar'])){
         $ci=$_GET['ci'];
+
+        include("../modelo/empleado.php");
+        $emp=new empleado("","","","","","","","","","");
+
         include("../modelo/usuario.php");
         $usu=new usuario("","","","","","");
-        $res=$usu->buscarusuario1($ci);
+        $res=$usu->buscarusuario2($ci);
         while($r=mysqli_fetch_array($res)){
             ?>
             <tr align="center" valign="middle">
+                <td><?php echo $r['nombre_e'].' '.$r['paterno_e'].' '.$r['materno_e'];?></td>
                 <td><?php echo $r['usuario'];?></td>
                 
                 <td>
@@ -24,10 +30,10 @@
                     ?>
                 </td>
                 <td><a href='editausuario.php?cod=<?php echo $r[0];?>' class="btn btn-success">
-                    <i class="glyphicon glyphicon-edit"></i></a></td>
+                <i class="bi bi-eraser"></i></a></td>
                     
                 <td><a href='eliminausuario.php?cid=<?php echo $r[0];?>' class="btn btn-danger">
-                    <i class="glyphicon glyphicon-trash"></i></a></td>
+                <i class="bi bi-trash"></i></a></td>
             </tr>
             <?php
 
@@ -43,10 +49,6 @@
     <div class="col-1"></div>
     </div>
     </div>
-    <br><br>
 
-<?php
-    include("pie.php");
-?>
 </body>
 </html>

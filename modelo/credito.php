@@ -1,32 +1,82 @@
 <?php
 class credito{
     private $id_credito;
-    private $id_cliente;
-    private $id_prenda;
     private $fechainicio;
     private $fechafin;
-    private $montocredito;
-    private $id_interes;
+    private $id_prenda;
+    private $id_tipoc;
+    private $monto;
+    private $id_tipoi;
     private $totalcredito;
-    private $id_pago;
-    private $id_tipo;
+    private $estadoc;
 
-    public function __construct($i,$ic,$ip,$fi,$ff,$m,$ii,$t,$ipa,$ti){
-        $this->id_credito=$i;
-        $this->id_cliente=$ic;
-        $this->id_prenda=$ip;
-        $this->fechainicio=$fi;
-        $this->fechafin=$ff;
-        $this->montocredito=$m;
-        $this->id_interes=$ii;
-        $this->totalcredito=$t;
-        $this->id_pago=$ipa;
-        $this->id_tipo=$ti;
 
+    public function __construct($i,$fi,$ff,$ip,$tc,$m,$ii,$t,$e){
+        $this->setid_credito($i);
+        $this->setfechainicio($fi);
+        $this->setfechafin($ff);
+        $this->setid_prenda($ip);
+        $this->setid_tipoc($tc);
+        $this->setmonto($m);
+        $this->setid_tipoi($ii);
+        $this->settotalcredito($t);
+        $this->setestadoc($e);
     }
     public function grabarcredito(){
         $bd=new conexion();
-        $consulta=$bd->query("INSERT INTO usuario(id_empleado,usuario,contraseña,nivel,estado) values('$this->id_empleado','$this->usuario','$this->contraseña','$this->nivel','$this->estado')");
+        $consulta=$bd->query("INSERT INTO credito(fechainicio,fechafin,id_prenda,id_tipoc,monto,id_tipoi,totalcredito,estadoc) values('$this->fechainicio','$this->fechafin','$this->id_prenda','$this->id_tipoc','$this->monto','$this->id_tipoi','$this->totalcredito','$this->estadoc')");
+        return($consulta);
+    }
+    public function listarcredito(){
+        $bd=new conexion();
+        $consulta=$bd->query("SELECT c.id_credito,c.fechainicio,c.fechafin,t.tipoc,c.monto,i.tipoi,c.totalcredito,cl.nombre_cliente, tp.tipo, p.marca,p.color,p.detalle, c.estadoc
+        from credito c, tipocredito t, tipointeres i,prenda p, cliente cl,tipoprenda tp
+        where c.id_prenda=p.id_prenda and c.id_tipoc=t.id_tipoc and c.id_tipoi=i.id_tipoi and cl.id_cliente=p.id_cliente and tp.id_tipo=p.id_tipo and c.estadoc='Activo' order by cl.nombre_cliente asc");
+        return($consulta);
+    }
+    public function listarcre(){
+        $bd=new conexion();
+        $consulta=$bd->query("SELECT c.*,cl.nombre_cliente, tp.tipo, p.marca,p.color,p.detalle,i.tipoi,t.tipoc
+        from credito c, tipocredito t, tipointeres i,prenda p, cliente cl,tipoprenda tp
+        where id_credito='$this->id_credito' and c.id_prenda=p.id_prenda and c.id_tipoc=t.id_tipoc and c.id_tipoi=i.id_tipoi and cl.id_cliente=p.id_cliente and tp.id_tipo=p.id_tipo and c.estadoc='Activo'");
+        return($consulta);
+    }
+    public function eliminarcredito(){
+        $bd=new conexion();
+        $consulta=$bd->query("UPDATE credito SET estadoc='Inactivo' where id_credito='$this->id_credito'");
+        return($consulta);
+    }
+    public function editarcredito(){
+        $bd=new conexion();
+        $consulta=$bd->query("UPDATE credito SET fechainicio='$this->fechainicio',fechafin='$this->fechafin',monto='$this->monto',totalcredito='$this->totalcredito' where id_credito='$this->id_credito'");
+        return($consulta);
+    }
+    public function buscarcredito($n){
+        /* include("conexion.php"); */
+        $bd=new conexion();
+        $consulta=$bd->query("SELECT c.id_credito,c.fechainicio,c.fechafin,t.tipoc,c.monto,i.tipoi,c.totalcredito,cl.nombre_cliente, tp.tipo, p.marca,p.color,p.detalle, c.estadoc
+        from credito c, tipocredito t, tipointeres i,prenda p, cliente cl,tipoprenda tp
+        where c.id_prenda=p.id_prenda and c.id_tipoc=t.id_tipoc and c.id_tipoi=i.id_tipoi and cl.id_cliente=p.id_cliente and tp.id_tipo=p.id_tipo and c.estadoc='Activo' and cl.nombre_cliente like '%$n%'");
+        return($consulta);
+    }
+    public function listarcreditoinactivo(){
+        $bd=new conexion();
+        $consulta=$bd->query("SELECT c.id_credito,c.fechainicio,c.fechafin,t.tipoc,c.monto,i.tipoi,c.totalcredito,cl.nombre_cliente, tp.tipo, p.marca,p.color,p.detalle, c.estadoc
+        from credito c, tipocredito t, tipointeres i,prenda p, cliente cl,tipoprenda tp
+        where c.id_prenda=p.id_prenda and c.id_tipoc=t.id_tipoc and c.id_tipoi=i.id_tipoi and cl.id_cliente=p.id_cliente and tp.id_tipo=p.id_tipo and c.estadoc='Inactivo'");
+        return($consulta);
+    }
+    public function activarcredito(){
+        $bd=new conexion();
+        $consulta=$bd->query("UPDATE credito SET estadoc='Activo' where id_credito='$this->id_credito'");
+        return($consulta);
+    }
+    public function buscarcreditoinactivo($n){
+        /* include("conexion.php"); */
+        $bd=new conexion();
+        $consulta=$bd->query("SELECT c.id_credito,c.fechainicio,c.fechafin,t.tipoc,c.monto,i.tipoi,c.totalcredito,cl.nombre_cliente, tp.tipo, p.marca,p.color,p.detalle, c.estadoc
+        from credito c, tipocredito t, tipointeres i,prenda p, cliente cl,tipoprenda tp
+        where c.id_prenda=p.id_prenda and c.id_tipoc=t.id_tipoc and c.id_tipoi=i.id_tipoi and cl.id_cliente=p.id_cliente and tp.id_tipo=p.id_tipo and c.estadoc='Inactivo' and cl.nombre_cliente like '%$n%'");
         return($consulta);
     }
 
@@ -35,19 +85,6 @@ class credito{
      }
      public function getid_credito(){
          return $this->id_credito;
-     }
-
-     public function setid_cliente($ic){
-        $this->id_cliente=$ic;
-     }
-     public function getid_cliente(){
-         return $this->id_cliente;
-     }
-     public function setid_prenda($ip){
-         $this->id_prenda=$ip;
-     }
-     public function getid_prenda(){
-         return $this->id_prenda;
      } 
      public function setfechainicio($fi){
         $this->fechainicio=$fi;
@@ -61,17 +98,23 @@ class credito{
     public function getfechafin(){
         return $this->fechafin;
     } 
-    public function setmontocredito($m){
-        $this->montocredito=$m;
+    public function setid_prenda($ip){
+        $this->id_prenda=$ip;
     }
-    public function getmontocredito(){
-        return $this->montocredito;
+    public function getid_prenda(){
+        return $this->id_prenda;
     }
-    public function setid_interes($ii){
-        $this->id_interes=$ii;
+    public function setmonto($m){
+        $this->monto=$m;
+    }
+    public function getmonto(){
+        return $this->monto;
+    }
+    public function setid_tipoi($ii){
+        $this->id_tipoi=$ii;
     }
     public function getid_interes(){
-        return $this->id_interes;
+        return $this->id_tipoi;
     } 
     public function settotalcredito($t){
         $this->totalcredito=$t;
@@ -79,17 +122,17 @@ class credito{
     public function gettotalcredito(){
         return $this->totalcredito;
     }  
-    public function setid_pago($ipa){
-        $this->id_pago=$ipa;
+    public function setid_tipoc($tc){
+        $this->id_tipoc=$tc;
     }
-    public function getid_pago(){
-        return $this->id_pago;
+    public function getid_tipoc(){
+        return $this->id_tipoc;
     } 
-    public function setid_tipo($ipa){
-        $this->id_tipo=$ipa;
+    public function setestadoc($e){
+        $this->estadoc=$e;
     }
-    public function getid_tipo(){
-        return $this->id_tipo;
+    public function getestadoc(){
+        return $this->estadoc;
     } 
 }
 ?>

@@ -1,7 +1,10 @@
 <?php
 //sale de la carpeta controlador y entra a la carpeta vista, busca el form de registro
+    include("../modelo/conexion.php");    
+
     include("../vista/FormularioRegistroCliente.php");
     if(isset($_POST['registrarCliente'])){
+
         $ci=$_POST['ci'];
         $nombre=$_POST['nombre'];
         $paterno=$_POST['paterno'];
@@ -13,22 +16,24 @@
 
         //echo $ci."".$nombre."".$paterno."".$materno."".$direccion."".$telefono."".$genero;
         //salgo del controlador voy al modelo y llamo a cliente.php, para almacenar el registro
+
         include("../modelo/cliente.php");
         $cli=new cliente("",$ci,$nombre,$paterno,$materno,$direccion,$telefono,$genero,$estado);
         $res=$cli->grabarcliente();
         if ($res){
-            ?>
-                <script>
-                    alert("REGISTRO EXITOSO");
-                </script>
-            <?php
+            echo"
+            <script>
+                alert('Registro exitoso');
+                location.href='listacliente.php';
+            </script>";
         } else {
-            ?>
-                <script>
-                    alert("ERROR EN EL REGISTRO");
-                </script>
-            <?php
-        }
+            echo"
+            <script>
+                alert('Error, No se registró');
+                location.href='listacliente.php';
+            </script>";
         
     }
+    }
+    
 ?>

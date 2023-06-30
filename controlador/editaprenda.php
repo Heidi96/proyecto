@@ -1,7 +1,12 @@
 <?php
+    include("../modelo/conexion.php");
     $cod=$_GET['cod'];
+
+    include("../modelo/cliente.php");
+    $cli=new cliente("","","","","","","","","");
+    
     include("../modelo/prenda.php");
-    $prenda=new prenda($cod,"","","","");
+    $prenda=new prenda($cod,"","","","","");
     $res=$prenda->buscarprenda();
 
     include("../vista/Vistaeditaprenda.php");
@@ -10,7 +15,7 @@
         $color=$_GET['color'];
         $detalle=$_GET['detalle'];
        
-        $prenda=new prenda($cod,"","$marca","$color","$detalle");
+        $prenda=new prenda($cod,"","$marca","$color","$detalle","");
         $res1=$prenda->editarprenda();
         if($res1){
             echo"

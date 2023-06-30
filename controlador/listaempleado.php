@@ -1,4 +1,5 @@
 <?php
+    include("../modelo/conexion.php");
     include("../modelo/empleado.php");
     $emp=new empleado("","","","","","","","","","");
     $res=$emp->listarempleado();

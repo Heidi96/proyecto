@@ -1,4 +1,5 @@
 <?php
+    include("../modelo/conexion.php");
     include("../vista/Vistabusquedatipoprenda.php");
     if(isset($_GET['Buscar'])){
         $ti=$_GET['tipo'];
@@ -11,10 +12,10 @@
                 <td><?php echo $r['tipo'];?></td>
 
                 <td><a href='editatipoprenda.php?cod=<?php echo $r[0];?>' class="btn btn-success">
-                    <i class="glyphicon glyphicon-edit"></i></a></td>
+                <i class="bi bi-eraser"></i></a></td>
                     
                 <td><a href='eliminatipoprenda.php?cid=<?php echo $r[0];?>' class="btn btn-danger">
-                    <i class="glyphicon glyphicon-trash"></i></a></td>
+                <i class="bi bi-trash"></i></a></td>
             </tr>
             <?php
 
@@ -31,9 +32,5 @@
     </div>
     </div>
     <br><br>
-
-<?php
-    include("pie.php");
-?>
 </body>
 </html>

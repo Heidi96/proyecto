@@ -22,7 +22,6 @@ class usuario{
         return($consulta);
     }
     public function listarusuario(){
-        include("conexion.php");
         $bd=new conexion();
         $consulta=$bd->query("SELECT u.*, emp.nombre_e, emp.paterno_e, emp.materno_e FROM usuario u INNER JOIN empleado emp ON u.id_empleado=emp.id_empleado where estado='Activo'");
         return($consulta);
@@ -30,20 +29,18 @@ class usuario{
     //si existe el usuario
     public function buscarusuario($empleado){
         $bd=new conexion();
-        $consulta=$bd->query("SELECT * FROM usuario where id_empleado='$this->id_empleado' and estado='Activo' where id_usuario='$this->id_usuario'");
+        $consulta=$bd->query("SELECT * FROM usuario where id_empleado='$this->id_empleado' and estado='Activo' and id_usuario='$this->id_usuario'");
         return($consulta);
     }
 
     //busca a un solo usuario por el id
     public function listarusu(){
-        include("conexion.php");
         $bd=new conexion();
         $consulta=$bd->query("SELECT u.*, emp.nombre_e, emp.paterno_e, emp.materno_e FROM usuario u JOIN empleado emp ON u.id_empleado = emp.id_empleado where u.id_usuario=$this->id_usuario and u.estado='Activo'");
         return($consulta);
     }
 
     public function eliminarusuario(){
-        include("conexion.php");
         $bd=new conexion();
         $consulta=$bd->query("UPDATE usuario SET estado='Inactivo' where id_usuario='$this->id_usuario'");
         return($consulta);
@@ -61,34 +58,41 @@ class usuario{
         return($consulta);
     }
     public function listarusuarioinactivo(){
-        include("conexion.php");
         $bd=new conexion();
         $consulta=$bd->query("SELECT u.*, emp.nombre_e, emp.paterno_e, emp.materno_e FROM usuario u INNER JOIN empleado emp ON u.id_empleado=emp.id_empleado where estado='Inactivo'");
         return($consulta);
     }
     public function activarusuario(){
-        include("conexion.php");
         $bd=new conexion();
         $consulta=$bd->query("UPDATE usuario SET estado='Activo' where id_usuario='$this->id_usuario'");
         return($consulta);
     }
     /////
     public function verificar1(){
-        include("conexion.php");
         $bd=new conexion();
         $consulta=$bd->query("SELECT concat(emp.nombre_e,emp.paterno_e,emp.materno_e)as EMPLEADO, u.usuario,u.nivel,u.estado FROM usuario u inner join empleado emp on u.id_empleado=emp.id_empleado where estado='Activo'");
         return($consulta);
     }
     public function verificar(){
-        include("conexion.php");
         $bd=new conexion();
         $consulta=$bd->query("SELECT * FROM usuario where usuario='$this->usuario' and contraseña='$this->contraseña' and estado='Activo'");
         return($consulta);
     }
     public function buscarusuarioinactivo($n){
-        include("conexion.php");
         $bd=new conexion();
-        $consulta=$bd->query("SELECT * FROM usuario where usuario like '%$n%' and estado='Inactivo'");
+        $consulta=$bd->query("SELECT u.*, e.nombre_e,e.paterno_e,e.materno_e FROM usuario u INNER JOIN empleado e ON u.id_empleado=e.id_empleado where e.nombre_e like '%$n%' and estado='Inactivo'");
+        return($consulta);
+    }
+    //BUSCA POR NOMBRE DE USUARIO
+    public function buscarusuario1($n){
+        $bd=new conexion();
+        $consulta=$bd->query("SELECT * FROM usuario where usuario like '%$n%' and estado='Activo'");
+        return($consulta);
+    }
+    //busca por nombre de empleado
+    public function buscarusuario2($n){
+        $bd=new conexion();
+        $consulta=$bd->query("SELECT u.*, e.nombre_e,e.paterno_e,e.materno_e FROM usuario u INNER JOIN empleado e ON u.id_empleado=e.id_empleado where e.nombre_e like '%$n%' and estado='Activo'");
         return($consulta);
     }
 

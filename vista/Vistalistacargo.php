@@ -9,10 +9,11 @@
     }
 ?>
 <body>
-<div class="container">
+    <div class="container">
     <div class="row">
     <div class="col-1"></div>
     <div class="col-10">
+        <br>
     <h1>LISTADO DE CARGOS</h1>
         <table class="table">
             <thead class="thead-dark">
@@ -25,16 +26,16 @@
             <tbody>
                 <?php
                     while($reg=mysqli_fetch_array($res)){
-                        echo "<tr>";
-                        echo "<td>".$reg[0]."</td>";
-                        echo "<td>".$reg['cargo']."</td>";
-
-
-                        echo"<td><a href='../controlador/editacargo.php?cod=$reg[0]' class='btn btn-success'>EDITAR</a></td>";
-
-                        echo"<td><a href='../controlador/eliminacargo.php?cid=$reg[id_cargo]' class='btn btn-danger'>ELIMINAR</a>";
-
-                        echo "</tr>";
+                ?>
+                        <div class="form_group">
+                        <tr align="center" valign="middle">
+                        <td><?php echo $reg[0];?></td>
+                        <td><?php echo $reg['cargo'];?></td>
+                        
+                        <td><a href='editacargo.php?cod=<?php echo $reg[0];?>' class="btn btn-success"><i class="bi bi-eraser"></i></a></td>
+                            
+                        <td><a href='eliminacargo.php?cid=<?php echo $reg[0];?>' class="btn btn-danger"><i class="bi bi-trash"></i></a></td>
+                <?php
                     }
                 ?>
             </tbody>
@@ -42,7 +43,6 @@
             <tr>
                 <td><a href="../controlador/registrarcargo.php" class="btn btn-info">Nuevo Cargo</a></td>
                 <td><a href="../controlador/busquedacargo.php" class="btn btn-warning">Buscar Cargo</a></td>
-                <td><a href="../reportes/reportecargo.php" class="btn btn-secondary">Reporte Cargo</a></td>
                 <td><a href="../index.php" class="btn btn-danger">SALIR</a></td>
             </tr>
     </div>
@@ -50,9 +50,7 @@
     </div>
     </div>
     <br><br>
-
     <?php
         include("pie.php");
     ?>
 </body>
-</html>

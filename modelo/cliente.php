@@ -9,6 +9,7 @@ class cliente{
     private $telefono;
     private $genero;
     private $estado;
+/*     private $prenda; */
 
     public function __construct($i,$c,$n,$p,$m,$d,$t,$g,$e){
         $this->id=$i;
@@ -20,36 +21,45 @@ class cliente{
         $this->telefono=$t;
         $this->genero=$g;
         $this->estado=$e;
+        /* $this->prenda=$pr; */
     }
     public function grabarcliente(){
-        include("conexion.php");
+        /* include("conexion.php"); */
         $db=new conexion();
         $consulta=$db->query("INSERT into cliente(carnet_cliente,nombre_cliente,paterno_cliente,materno_cliente,direccion_cliente,telefono_cliente,genero_cliente,estado_cliente) values('$this->ci','$this->nombre','$this->paterno','$this->materno','$this->direccion',' $this->telefono','$this->genero','$this->estado')");
         //me devolvera un valor booleano
         return($consulta);
     }
     public function listarcliente(){
-        include("conexion.php");
+        /* include("conexion.php"); */
         $db=new conexion();
         $consulta=$db->query("SELECT * from cliente where estado_cliente='Activo'");
         return($consulta);
     }
     public function eliminarcliente(){
-        include("conexion.php");
+        /* include("conexion.php"); */
         $db=new conexion();
         $consulta=$db->query("UPDATE cliente set estado_cliente='Inactivo' where id_cliente='$this->id'");
         return($consulta);
     }
     public function buscacliente(){
-        include("conexion.php");
+        /* include("conexion.php"); */
         $db=new conexion();
         $consulta=$db->query("SELECT id_cliente,carnet_cliente,nombre_cliente,paterno_cliente,materno_cliente,direccion_cliente,telefono_cliente,genero_cliente from cliente where estado_cliente='Activo' and id_cliente='$this->id'");
         return($consulta);
     }
+    //busca por nombre del cliente
     public function buscarcliente1($n){
-        include("conexion.php");
+        /* include("conexion.php"); */
         $bd=new conexion();
         $consulta=$bd->query("SELECT * FROM cliente where nombre_cliente like '%$n%' and estado_cliente='Activo'");
+        return($consulta);
+    }
+    //busca por carnet
+    public function buscarcliente2($n){
+        /* include("conexion.php"); */
+        $bd=new conexion();
+        $consulta=$bd->query("SELECT * FROM cliente where carnet_cliente like '%$n%' and estado_cliente='Activo'");
         return($consulta);
     }
     public function actualizarcliente($cod,$carnet,$nombr,$patern,$matern,$direccio,$telefon,$gener){
@@ -118,5 +128,11 @@ class cliente{
     public function getestado(){
         return $this->estado;
     } 
+/*     public function setprenda($prenda){
+        $this->prenda=$prenda;
+    }
+    public function getprenda(){
+        return $this->prenda;
+    }  */
 }
 ?>

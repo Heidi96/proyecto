@@ -1,4 +1,5 @@
 <?php
+    include("../modelo/conexion.php");
     include("../vista/Vistabusquedacargo.php");
     if(isset($_GET['Buscar'])){
         $ca=$_GET['cargo'];
@@ -11,10 +12,10 @@
                 <td><?php echo $r['cargo'];?></td>
 
                 <td><a href='editacargo.php?cod=<?php echo $r[0];?>' class="btn btn-success">
-                    <i class="glyphicon glyphicon-edit"></i></a></td>
+                <i class="bi bi-eraser"></i></i></a></td>
                     
                 <td><a href='eliminacargo.php?cid=<?php echo $r[0];?>' class="btn btn-danger">
-                    <i class="glyphicon glyphicon-trash"></i></a></td>
+                <i class="bi bi-trash"></i></a></td>
             </tr>
             <?php
 
@@ -32,8 +33,5 @@
     </div>
     <br><br>
 
-<?php
-    include("pie.php");
-?>
 </body>
 </html>

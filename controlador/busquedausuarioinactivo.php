@@ -1,13 +1,20 @@
 <?php
+    include("../modelo/conexion.php");
     include("../vista/Vistabusquedausuarioinactivo.php");
     if(isset($_GET['Buscar'])){
         $ci=$_GET['ci'];
+        
+        include("../modelo/empleado.php");
+        $emp=new empleado("","","","","","","","","","");
+
         include("../modelo/usuario.php");
         $usu=new usuario("","","","","","");
         $res=$usu->buscarusuarioinactivo($ci);
+
         while($r=mysqli_fetch_array($res)){
             ?>
             <tr align="center" valign="middle">
+                <td><?php echo $r['nombre_e'].' '.$r['paterno_e'].' '.$r['materno_e'];?></td>
                 <td><?php echo $r['usuario'];?></td>
                 
                 <td>
@@ -26,7 +33,7 @@
 
                 <td><a href='editausuarioinactivo.php?cod=<?php echo $r[0];?>' class="btn btn-success">Activar</a></td>
 
-                <td><a href='eliminausuarioinactivo.php?cid=<?php echo $r[0];?>' class="btn btn-danger">Eliminar<i class="glyphicon glyphicon-edit"></i></a></td>
+                <td><a href='eliminausuarioinactivo.php?cid=<?php echo $r[0];?>' class="btn btn-danger"><i class="bi bi-trash"></a></td>
             </tr>
             <?php
 
